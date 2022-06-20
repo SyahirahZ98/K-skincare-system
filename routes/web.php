@@ -33,7 +33,30 @@ Route::get("/updateview/{id}",[AdminController::class,"updateview"]);
 
 Route::post("/update/{id}",[AdminController::class,"update"]);
 
+Route::post("/reservation",[AdminController::class,"reservation"]);
+
+Route::get("/viewreservation",[AdminController::class,"viewreservation"]);
+
+Route::get("/viewconsult",[AdminController::class,"viewconsult"]);
+
+Route::post("/uploadconsult",[AdminController::class,"uploadconsult"]);
+
+Route::get("/updateconsult/{id}",[AdminController::class,"updateconsult"]);
+
+Route::post("/updatedataconsult/{id}",[AdminController::class,"updatedataconsult"]);
+
+Route::get("/deleteconsult/{id}",[AdminController::class,"deleteconsult"]);
+
+Route::get("/skincare",[HomeController::class,"skincare"]);
+
+Route::get("/body",[HomeController::class,"body"]);
+
+Route::get("/makeup",[HomeController::class,"makeup"]);
+
+Route::post("/addtocart/{id}",[HomeController::class,"addtocart"]);
+
 Route::get("/redirects",[HomeController::class,"redirects"]);
+
 Route::middleware(['auth:sanctum','verified'])->get('/dashboard', function()
  {
         return view('dashboard');

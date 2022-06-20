@@ -8,6 +8,10 @@ use App\Models\User;
 
 use App\Models\Product;
 
+use App\Models\Reservation;
+
+use App\Models\Consultant;
+
 class AdminController extends Controller
 {
     public function user()
@@ -74,5 +78,78 @@ class AdminController extends Controller
         $data->save();
         return redirect()->back();
     }
+
+    public function reservation(Request $request)
+    {
+      $data = new reservation;
+
+
+        $data->name=$request->name;
+        $data->email=$request->email;
+        $data->phone=$request->phone;
+        $data->guest=$request->guest;
+        $data->date=$request->date;
+        $data->time=$request->time;
+        $data->message=$request->message;
+        $data->save();
+        return redirect()->back();
+    }
+
+    public function viewreservation()
+    {
+        $data=reservation::all();
+        return view("admin.adminreservation", compact("data"));
+    }
+
+    public function viewconsult()
+    {
+       $data=consultant::all();
+       return view("admin.adminconsult", compact("data")); 
+    }
+
+    public function uploadconsult(Request $request)
+    {
+        $data=new consultant;
+        $image=$request->image;
+
+        $imagename =time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('consultimage',$imagename);
+        $data->image=$imagename;
+        $data->name=$request->name;
+        $data->speciality=$request->speciality;
+        $data->save();
+
+        return redirect()->back();
+    }
+
+    public function updateconsult($id)
+    {
+        $data=consultant::find($id);
+        return view("admin.updateconsult",compact("data"));
+    }
+
+    public function updatedataconsult(Request $request, $id)
+    {
+      $data=consultant::find($id);  
+      $image=$request->image;
+      if($image)
+      {
+      $imagename =time().'.'.$image->getClientOriginalExtension();
+         $request->image->move('consultimage',$imagename);
+         $data->image=$imagename;
+      }
+      $data->name=$request->name;
+      $data->speciality=$request->speciality;
+      $data->save();
+      return redirect()->back();
+    }
+
+    public function deleteconsult($id)
+    {
+        $data=consultant::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+    
 }
 

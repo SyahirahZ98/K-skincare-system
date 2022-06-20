@@ -48,7 +48,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
-                <div class="col-12">
+                <div class="col-11">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
@@ -74,10 +74,10 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="submenu">
                                 <a href="javascript:;">Categories</a>
                                 <ul>
-                                    <li><a href="#">Skincare</a></li>
-                                    <li><a href="#">Body</a></li>
-                                    <li><a href="#">Make up</a></li>
-                                    <li><a href="#">Fragrance</a></li>
+                                    <li><a href="{{url('/skincare')}}">Skincare</a></li>
+                                    <li><a href="{{url('/body')}}">Body</a></li>
+                                    <li><a href="{{url('/makeup')}}">Make up</a></li>
+                
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
@@ -101,6 +101,10 @@ https://templatemo.com/tm-558-klassy-cafe
                             </div>
                         @endif
                         </li>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="110" fill="currentColor" class="bi bi-cart" viewBox="0 5 16 16">
+                                <a href="#">
+                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                            </svg>
                         </ul>        
                         <a class='menu-trigger'>
                             <span></span>
@@ -206,186 +210,11 @@ https://templatemo.com/tm-558-klassy-cafe
     </section>
     <!-- ***** About Area Ends ***** -->
     @include("product")
-    <!-- ***** Chefs Area Starts ***** -->
-    <section class="section" id="chefs">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 offset-lg-4 text-center">
-                    <div class="section-heading">
-                        <h6>Our Consultant</h6>
-                        <h2>We offer the best helper to reach your skin goals</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                            <img src="assets/images/chefs-01.png" alt="Chef #1">
-                        </div>
-                        <div class="down-content">
-                            <h4>Iman Abdul Rahim</h4>
-                            <span>Skincare Advisor</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-behance"></i></a></li>
-                            </ul>
-                            <img src="assets/images/chefs-03.jpg" alt="Chef #2">
-                        </div>
-                        <div class="down-content">
-                            <h4>Dr Nurul A'in Sa'ari</h4>
-                            <span>Skincare Specialist</span>
-                            
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="chef-item">
-                        <div class="thumb">
-                            <div class="overlay"></div>
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google"></i></a></li>
-                            </ul>
-                            <img src="assets/images/chefs-02.jpg" alt="Chef #3">
-                        </div>
-                        <div class="down-content">
-                            <h4>Maisarah Mahmud</h4>
-                            <span>Beauty Consultant</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Chefs Area Ends ***** -->
+    
+    @include("consultant")
 
-    <!-- ***** Reservation Us Area Starts ***** -->
-    <section class="section" id="reservation">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 align-self-center">
-                    <div class="left-text-content">
-                        <div class="section-heading">
-                            <h6>Contact Us</h6>
-                            <h2>Here You Can Make A Reservation Or Just walkin to our store</h2>
-                        </div>
-                        <p>You can contact us through calling, emails or make a reservation through this website to consult with
-                            our consultant!
-                        </p>
-                        <div class="row">
-                            <div class="col-lg-6">
-                                <div class="phone">
-                                    <i class="fa fa-phone"></i>
-                                    <h4>Phone Numbers</h4>
-                                    <span><a href="#">03-0983214</a><br><a href="#">03-0983213</a></span>
-                                </div>
-                            </div>
-                            <div class="col-lg-6">
-                                <div class="message">
-                                    <i class="fa fa-envelope"></i>
-                                    <h4>Emails</h4>
-                                    <span><a href="#">nusya@company.com</a><br><a href="#">nusyahr@company.com</a></span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form id="contact" action="" method="post">
-                          <div class="row">
-                            <div class="col-lg-12">
-                                <h4>Reservation Consultant </h4>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                              <fieldset>
-                                <input name="name" type="text" id="name" placeholder="Your Name*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                              <fieldset>
-                              <input name="email" type="text" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Email Address" required="">
-                            </fieldset>
-                            </div>
-                            <div class="col-lg-6 col-sm-12">
-                              <fieldset>
-                                <input name="phone" type="text" id="phone" placeholder="Phone Number*" required="">
-                              </fieldset>
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <select value="number-guests" name="number-guests" id="number-guests">
-                                    <option value="number-guests">Number Of Guests</option>
-                                    <option name="1" id="1">1</option>
-                                    <option name="2" id="2">2</option>
-                                    <option name="3" id="3">3</option>
-                                    <option name="4" id="4">4</option>
-                                    <option name="5" id="5">5</option>
-                                    <option name="6" id="6">6</option>
-                                    <option name="7" id="7">7</option>
-                                    <option name="8" id="8">8</option>
-                                    <option name="9" id="9">9</option>
-                                    <option name="10" id="10">10</option>
-                                    <option name="11" id="11">11</option>
-                                    <option name="12" id="12">12</option>
-                                </select>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-6">
-                                <div id="filterDate2">    
-                                  <div class="input-group date" data-date-format="dd/mm/yyyy">
-                                    <input  name="date" id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
-                                    <div class="input-group-addon" >
-                                      <span class="glyphicon glyphicon-th"></span>
-                                    </div>
-                                  </div>
-                                </div>   
-                            </div>
-                            <div class="col-md-6 col-sm-12">
-                              <fieldset>
-                                <select value="time" name="time" id="time">
-                                    <option value="time">Time</option>
-                                    <option name="Breakfast" id="Breakfast">Breakfast</option>
-                                    <option name="Lunch" id="Lunch">Lunch</option>
-                                    <option name="Dinner" id="Dinner">Dinner</option>
-                                </select>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <textarea name="message" rows="6" id="message" placeholder="Message" required=""></textarea>
-                              </fieldset>
-                            </div>
-                            <div class="col-lg-12">
-                              <fieldset>
-                                <button type="submit" id="form-submit" class="main-button-icon">Make A Reservation</button>
-                              </fieldset>
-                            </div>
-                          </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- ***** Reservation Area Ends ***** -->
-
+    @include("reservation")
+    
     <!-- ***** Menu Area Starts ***** -->
     <section class="section" id="offers">
         <div class="container">

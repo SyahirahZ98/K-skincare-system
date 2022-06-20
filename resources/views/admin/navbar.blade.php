@@ -44,19 +44,19 @@
           </a>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="pages/tables/basic-table.html">
+          <a class="nav-link" href="{{url('viewconsult')}}">
             <span class="menu-icon">
               <i class="mdi mdi-table-large"></i>
             </span>
-            <span class="menu-title">skincare</span>
+            <span class="menu-title">Consultant</span>
           </a>
         </li>
         <li class="nav-item menu-items">
-          <a class="nav-link" href="pages/charts/chartjs.html">
+          <a class="nav-link" href="{{url('viewreservation')}}">
             <span class="menu-icon">
               <i class="mdi mdi-chart-bar"></i>
             </span>
-            <span class="menu-title">Order</span>
+            <span class="menu-title">Reservation</span>
           </a>
         </li>
       </ul>
