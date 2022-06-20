@@ -41,7 +41,8 @@ class HomeController extends Controller
 
     public function skincare()
     {
-        return view('skincare');
+        $products = Product::all();
+        return view('skincare',compact('products'));
     }
 
     public function body()
@@ -65,7 +66,7 @@ class HomeController extends Controller
 
             $cart=new cart;
             $cart->user_id=$user_id;
-            $cart->product_id=$product_id;
+            $cart->product_id=$productid;
             $cart->quantity=$quantity;
             $cart->save();
 
@@ -76,5 +77,12 @@ class HomeController extends Controller
             return redirect('/login');
         }
         
+    }
+
+    public function cart()
+    {
+        $cart_product = Cart::all();
+
+        return view('cart', compact('cart_product'));
     }
 }

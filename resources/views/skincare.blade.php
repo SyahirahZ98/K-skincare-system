@@ -77,99 +77,27 @@
             </div>
             <br><br>
           
-            <div class="container"> 
-           
-                  <form action="{{url('/addtocart')}}" method="post">
-                    @csrf 
-                    <div class="row">
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/skincare/cleansing oil.png" target="_blank">
-                        <img src="assets/images/skincare/cleansing oil.png" alt="Lights" style="width:100%">
-                        <div class="caption">
-                          <p><b>(iUNIK) Calendula Complete Cleansing Oil 200ml</b></p>
-                          <p>RM60</p> 
-                        </div>
-                        </a>
-                        <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
-                        <input type="submit" value="Add to Cart">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/skincare/buble cleansing foam.jpg" target="_blank">
-                        <img src="assets/images/skincare/buble cleansing foam.jpg" alt="Nature" style="width:100%">
-                        <div class="caption">
-                          <p><b>(iUNIK) Centella Bubble Cleansing Foam 150ml</b></p>
-                          <p>RM40</p><br>
-                        </div>
-                      </a>
-                      <input type="number" name="quantity" min="0" style="width: 50px;">
-                        <input type="submit" value="Add to Cart">
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/skincare/centella calming gel.png" target="_blank">
-                        <img src="assets/images/skincare/centella calming gel.png" alt="Fjords" style="width:100%">
-                        <div class="caption">
-                          <p><b>(iUNIK) Centella Calming Gel Cream 60ml</p></b>
-                          <p>RM56.90</p><br>
-                        </div>
-                      </a>
-                        <input type="number" name="quantity" min="0" style="width: 50px;">
-                        <input type="submit" value="Add to Cart">
-                    </div>
-                  </div>
-                </form>
-              
-                </div>
-            
-            </div>
-            <br>
-            <div class="container">
-              <form action="{{url('/addtocart')}}" method="post">
+              <div class="container"> 
+                  <div class="row">
+              @foreach ( $products as $id)
+              <form action="{{url('/addtocart',$id)}}" method="post">
                 @csrf 
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/skincare/noni light oil serum.png" target="_blank">
-                        <img src="assets/images/skincare/noni light oil serum.png" alt="Lights" style="width:100%">
-                        <div class="caption">
-                          <p><b>(iUNIK) Noni Light Oil Serum 50ml</b></p>
-                          <p>RM69.90</p>
-                          <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
-                          <input type="submit" value="Add to Cart">
-                        </div>
+                <div class="col-md-4">
+                  <div class="thumbnail">
+                    <a href="/productimage/{{$id->image}}" target="_blank">
+                      <img src="/productimage/{{$id->image}}" alt="Lights" style="width:100%">
+                      <div class="caption">
+                        <p><b>{{ $id->title }}</b></p>
+                        <p>{{ $id->price }}</p> 
+                      </div>
                       </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/skincare/propolis vitamin serum.png" target="_blank">
-                        <img src="assets/images/skincare/propolis vitamin serum.png" alt="Nature" style="width:100%">
-                        <div class="caption">
-                          <p><b>(iUNIK) Propolis Vitamin Synergy Serum 50ml</b></p>
-                          <p>RM35</p>
-                          <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
-                          <input type="submit" value="Add to Cart"></div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/skincare/rose galactomyces serum.png" target="_blank">
-                        <img src="assets/images/skincare/rose galactomyces serum.png" alt="Fjords" style="width:100%">
-                        <div class="caption">
-                          <p><b>(iUNIK) Rose Galactomyces synergy Serum 50ml</p></b>
-                          <p>RM45</p> 
-                          <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
-                          <input type="submit" value="Add to Cart">
-                        </div>
-                      </a>
-                    </div>
+                      <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
+                      <input type="submit" value="Add to Cart">
                   </div>
                 </div>
+              </form>  
+            @endforeach
+                  </div>
             </div>
             <br>
             <footer>
