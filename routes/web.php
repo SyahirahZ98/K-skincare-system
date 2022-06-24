@@ -63,8 +63,8 @@ Route::get("/makeup",[HomeController::class,"makeup"]);
 
 // Route::get("/cart/{id}",[HomeController::class,"cart"]);
 
-//Route::post('/cart/{id}', [ProductController::class, 'productList'])->name('products.list');
-Route::post('/cart/{id}', [CartController::class, 'cartList'])->name('cart.list');
+Route::post('/', [ProductController::class, 'productList'])->name('products.list');
+Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');
 Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');

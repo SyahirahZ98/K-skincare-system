@@ -117,7 +117,7 @@
                 <main>
                     <div class="container">
                         @foreach ( $products as $id)
-                        <form action="{{url('/cart',$id)}}" method="post">
+                        <form action="{{route('cart.store')}}" method="post" enctype="multipart/form-data">
                           @csrf 
                          <div class="row">
                             <div class="col-4">
@@ -125,11 +125,16 @@
                               <a href="/productimage/{{$id->image}}" target="_blank">
                                 <img src="/productimage/{{$id->image}}" alt="Lights" style="width:100%">
                                 <div class="caption">
-                                  <p><b>{{ $id->title }}</b></p>
+                                  <p><b>{{ $id->name }}</b></p>
                                   <p>{{ $id->price }}</p> 
                                 </div>
                                 </a>
-                                <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
+                                <input type="hidden" value="{{ $id->id }}" name="id">
+                                <input type="hidden" value="{{ $id->name }}" name="name">
+                                <input type="hidden" value="{{ $id->price }}" name="price">
+                                <input type="hidden" value="{{ $id->image }}" name="image">
+                                <input type="number" value="1" name="quantity" min="1"  value="1" style="width: 50px;">
+                                {{-- <input type="number" name="quantity" min="1"  value="1" style="width: 50px;"> --}}
                                 <input type="submit" value="Add to Cart">
                             </div>
                           </div>

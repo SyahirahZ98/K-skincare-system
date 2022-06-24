@@ -72,7 +72,7 @@ class AdminController extends Controller
         $request->image->move('productimage',$imagename);
         $data->image=$imagename;
 
-        $data->title=$request->title;
+        $data->name=$request->title;
         $data->price=$request->price;
         $data->description=$request->description;
         $data->save();
