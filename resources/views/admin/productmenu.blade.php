@@ -70,7 +70,7 @@
 </table>
    </div>
    </div>
-    </div>
+    <br><br>
    
     @include("admin.adminscript")
   </body>

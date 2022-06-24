@@ -14,6 +14,8 @@ use App\Models\Consultant;
 
 use App\Models\Cart;
 
+use App\Models\Body;
+
 class HomeController extends Controller
 {
     public function index()
@@ -39,6 +41,12 @@ class HomeController extends Controller
      }
     }
 
+    public function infoconsult()
+    {
+        $data2=consultant::all();
+        return view('infoconsult',compact('data2'));
+    }
+
     public function skincare()
     {
         $products = Product::all();
@@ -47,6 +55,7 @@ class HomeController extends Controller
 
     public function body()
     {
+       
         return view('body');
     }
 
@@ -57,7 +66,7 @@ class HomeController extends Controller
 
     public function addtocart(Request $request,$id)
     {
-      
+        $data=cart::all();
         if(Auth::id())
         {
             $user_id=Auth::id();
@@ -79,10 +88,11 @@ class HomeController extends Controller
         
     }
 
-    public function cart()
+    public function cart(Request $request,$id)
     {
         $cart_product = Cart::all();
-
-        return view('cart', compact('cart_product'));
+        $products=Cart::where('user_id',$id)->join('products','carts.product_id','=','product_id')->get();
+        return view('cart', compact('cart_product','products'));
     }
 }
+

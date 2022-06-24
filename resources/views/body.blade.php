@@ -19,11 +19,22 @@
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+    <style>
+            .sidebar li .submenu{ 
+        list-style: none; 
+        margin: 0; 
+        padding:2px;
+        padding-left: 4rem; 
+        padding-right: 4rem;
+        background-color: lightpink;
+        }
+        </style>
     </head>
 
     <body>
         <header class="header-area header-sticky">
             <div class="container">
+              
                 <div class="row">
                     <div class="col-11">
                         <nav class="main-nav">
@@ -60,10 +71,12 @@
                             @endif
                                 </li>
                                 <li>
+                                  @auth
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="100" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                        <a href="#">
+                                        <a href="{{url('/cart',Auth::user()->id)}}">
                                         <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
                                     </svg>
+                                    @endauth
                                 </li>
                             </ul>        
                             <a class='menu-trigger'>
@@ -75,117 +88,120 @@
                 </div>
             </div>
             <br><br>
-            <div class="container">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/body/1.png" target="_blank">
-                        <img src="assets/images/body/1.png" alt="Lights" style="width:80%">
-                        <div class="caption">
-                          <p><b>(BBW) Blueberry Sugar Pancakes</b></p>
-                          <p>Body Wash & Shower Gel</p>
-                          <p>RM75</p><br><br><button style="color:white" class="btn btn-primary btn-sm" type="Submit" value="Save">Add to Cart</button>
-                        </div>
-                        </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/body/2.jpg" target="_blank">
-                        <img src="assets/images/body/2.jpg" alt="Nature" style="width:110%">
-                        <div class="caption">
-                          <p><b>(BBW) Warm Vanilla</b></p>
-                          <p>Shower Gel</p>
-                          <p>RM75</p><br><button style="color:white" class="btn btn-primary btn-sm" type="Submit" value="Save">Add to Cart</button>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/body/3.jpg" target="_blank">
-                        <img src="assets/images/body/3.jpg" alt="Fjords" style="width:70%">
-                        <div class="caption"><br>
-                          <p><b>(iUNIK) Gingham</p></b>
-                          <p>Shower Gel</p>
-                          <p>RM35</p><br><button style="color:white" class="btn btn-primary btn-sm" type="Submit" value="Save">Add to Cart</button>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-            </div>
-            <br><br>
-            <div class="container">
-                <div class="row">
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/body/4.jpg" target="_blank">
-                        <img src="assets/images/body/4.jpg" alt="Lights" style="width:80%">
-                        <div class="caption">
-                          <p><b>(BBW) Cherry Blossom</b></p>
-                          <p>Shower Gel</p>
-                          <p>RM75</p><br><button style="color:white" class="btn btn-primary btn-sm" type="Submit" value="Save">Add to Cart</button>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                     <br> <a href="assets/images/skincare/body/5.jpg" target="_blank">
-                        <img src="assets/images/body/5.jpg" alt="Nature" style="width:90%">
-                        <div class="caption">
-                          <br><br><p><b>(BBW) Dahlia</b></p>
-                          <p>Shower Gel</p>
-                          <p>RM35</p><br><button style="color:white" class="btn btn-primary btn-sm" type="Submit" value="Save">Add to Cart</button>
-                        </div>
-                      </a>
-                    </div>
-                  </div>
-                  <div class="col-md-4">
-                    <div class="thumbnail">
-                      <a href="assets/images/body/6.jpg" target="_blank">
-                        <img src="assets/images/body/6.jpg" alt="Fjords" style="width:80%">
-                        <div class="caption">
-                            <p><b>(BBW) Dark Kiss</b></p>
-                            <p>Body Wash & Shower Gel</p>
-                            <p>RM75</p><br><button style="color:white" class="btn btn-primary btn-sm" type="Submit" value="Save">Add to Cart</button>
+           
+            <br> <div class="row">
+            <aside class="col-lg-2"> 
+        <!-- ============= COMPONENT ============== -->
+        <nav class="sidebar card py-2 mb-4" >
+        <ul class="nav flex-column" id="nav_accordion">
+            <li class="nav-item">
+                <a class="nav-link" href="#">Pyungkng Yul</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">innisfree</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Somebymi</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Dr Jart+</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Illiyoon</a>
+            </li>
+            
+        </ul>
+        </nav>
+        <!-- ============= COMPONENT END// ============== -->	
+                </aside>
+                <main>
+                    <div class="container">
+                        @foreach ( $products as $id)
+                        <form action="{{url('/cart',$id)}}" method="post">
+                          @csrf 
+                         <div class="row">
+                            <div class="col-4">
+                            <div class="thumbnail">
+                              <a href="/productimage/{{$id->image}}" target="_blank">
+                                <img src="/productimage/{{$id->image}}" alt="Lights" style="width:100%">
+                                <div class="caption">
+                                  <p><b>{{ $id->title }}</b></p>
+                                  <p>{{ $id->price }}</p> 
+                                </div>
+                                </a>
+                                <input type="number" name="quantity" min="1"  value="1" style="width: 50px;">
+                                <input type="submit" value="Add to Cart">
+                            </div>
                           </div>
-                      </a>
+                         </div>
+                        </form>  
+                      @endforeach
+                           
                     </div>
-                  </div>
-                </div>
+                </main>
             </div>
-            <br>
+         
+           
+                  <script>
+                    document.addEventListener("DOMContentLoaded", function(){
+                document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
+    
+                 element.addEventListener('click', function (e) {
+
+                let nextEl = element.nextElementSibling;
+                let parentEl  = element.parentElement;	
+
+                if(nextEl) {
+                    e.preventDefault();	
+                    let mycollapse = new bootstrap.Collapse(nextEl);
+                
+                if(nextEl.classList.contains('show')){
+                mycollapse.hide();
+                } else {
+                    mycollapse.show();
+                    // find other submenus with class=show
+                    var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
+                    // if it exists, then close all of them
+                    if(opened_submenu){
+                    new bootstrap.Collapse(opened_submenu);
+                }
+                            }
+                        }
+                    }); // addEventListener
+                }) // forEach
+                }); 
+                </script>
+            <br><br>
+
             <footer>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4 col-xs-12">
-                            <div class="right-text-content">
-                                    <ul class="social-icons">
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                                    </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="logo">
-                                <a href="profile"><img src="assets/images/make-up.png" alt=""></a>
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-xs-12">
-                            <div class="left-text-content">
-                                <p>© Copyright NuSya Care.
-                                
-                               </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer>
+              <div class="container">
+                  <div class="row">
+                      <div class="col-lg-4 col-xs-12">
+                          <div class="right-text-content">
+                                  <ul class="social-icons">
+                                      <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                      <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                  </ul>
+                          </div>
+                      </div>
+                      <div class="col-lg-4">
+                          <div class="logo">
+                              <a href="profile"><img src="assets/images/make-up.png" alt=""></a>
+                          </div>
+                      </div>
+                      <div class="col-lg-4 col-xs-12">
+                          <div class="left-text-content">
+                              <p>© Copyright NuSya Care.
+                              
+                             </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </footer>
         </header>
+        
     </body>
     </html>
