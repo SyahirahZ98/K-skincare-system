@@ -22,7 +22,7 @@
                             <div class="message">
                                 <i class="fa fa-envelope"></i>
                                 <h4>Emails</h4>
-                                <span><a href="#">nusya@company.com</a><br><a href="#">nusyahr@company.com</a></span>
+                                <span><a href="#">nusya@company.com</a><br><a href="#">syahirah@com.my</a></span>
                             </div>
                         </div>
                     </div>

@@ -19,7 +19,7 @@
          <div class="form-row">
          <div class="form-group col-md-6">
           <label for="colFormLabel">Title</label>
-                <input style="color: white" class="form-control" type="text" name="title" value="{{$data->title}}" required>
+                <input style="color: white" class="form-control" type="text" name="name" value="{{$data->name}}" required>
             </div>
             <div class="form-group row">
               <div class="form-group col-md-6">

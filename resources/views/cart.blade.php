@@ -75,65 +75,8 @@ https://templatemo.com/tm-558-klassy-cafe
                             <li class="scroll-to-section"><a href="#menu">Menu</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Categories</a>
-                                <ul>
-                                    <li><a href="{{url('/skincare')}}">Skincare</a></li>
-                                    <li><a href="{{url('/body')}}">Body</a></li>
-                                    <li><a href="{{url('/makeup')}}">Make up</a></li>
-                
-                                </ul>
-                            </li>
-                            <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> 
-                            <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
-                            <li>
-                            @if (Route::has('login'))
-                            <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
-                                @auth
-                                <li>
-                                    <x-app-layout>
-  
-                                    </x-app-layout>
-                                </li>
-                                @else
-                                   <li><a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
-            
-                                    @if (Route::has('register'))
-                                        <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a></li>
-                                    @endif
-                                @endauth
-                            </div>
-                        @endif
-                        </li>
-                        @auth
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="110" fill="currentColor" class="bi bi-cart" viewBox="0 5 16 16">
-                                <a href="{{url('/cart',Auth::user()->id)}}">
-                                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>                       
-                        @endauth
-                        </ul>        
-                        <a class='menu-trigger'>
-                            <span></span>
-                        </a>
-                        <!-- ***** Menu End ***** 
-                    </nav>
-                </div>
-            </div>
-        </div>
-    </header>
-    <div id="top">
-    <table class="table-light" align="center">
+                               
     
-          <tr>
-            <th style="padding: 30px">Name</th>
-            <th style="padding: 30px">Price</th>
-            <th style="padding: 30px">Quantity</th>
-          </tr>
-       @foreach ($products as $id)
-        <tr align="center">
-            <td>{{$id->title}}</td>
-            <td>{{$id->price}}</td>
-            <td>{{$id->quantity}}</td>
-        </tr> 
-       @endforeach
       </table>
     </div>
 

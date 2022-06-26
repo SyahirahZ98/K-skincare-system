@@ -19,14 +19,81 @@
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <style>
-            .sidebar li .submenu{ 
-        list-style: none; 
-        margin: 0; 
-        padding:2px;
-        padding-left: 4rem; 
-        padding-right: 4rem;
-        background-color: lightpink;
+                .sidebar1 {
+            background: #F17153;
+            /* For browsers that do not support gradients */
+            background: -webkit-linear-gradient(#F17153, #F58D63, #f1ab53);
+            /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(#F17153, #F58D63, #f1ab53);
+            /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(#F17153, #F58D63, #f1ab53);
+            /* For Firefox 3.6 to 15 */
+            background: linear-gradient(#F17153, #F58D63, #f1ab53);
+            /* Standard syntax */
+            padding: 0px;
+            min-height: 100%;
+        }
+        .logo {
+            max-height: 130px;
+        }
+        .logo>img {
+            margin-top: 30px;
+            padding: 3px;
+            border: 3px solid white;
+            border-radius: 100%;
+        }
+        .list {
+            color: #fff;
+            list-style: none;
+            padding-left: 0px;
+        }
+        .list::first-line {
+            color: rgba(255, 255, 255, 0.5);
+        }
+        .list> li, h5 {
+            padding: 5px 0px 5px 40px;
+        }
+        .list>li:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            border-left: 5px solid white;
+            color: white;
+            font-weight: bolder;
+            padding-left: 35px;
+        }.main-content{
+        text-align:center;
+        }
+                body {
+        min-height: 100vh;
+        background: #fafafa;
+        }
+
+
+        .social-link {
+        width: 30px;
+        height: 30px;
+        border: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #666;
+        border-radius: 50%;
+        transition: all 0.3s;
+        font-size: 0.9rem;
+        }
+
+        .social-link:hover,
+        .social-link:focus {
+        background: #ddd;
+        text-decoration: none;
+        color: #555;
+        }
+
+        .progress {
+        height: 10px;
         }
         </style>
     </head>
@@ -34,12 +101,11 @@
     <body>
         <header class="header-area header-sticky">
             <div class="container">
-              
                 <div class="row">
                     <div class="col-11">
                         <nav class="main-nav">
                             <!-- ***** Logo Start ***** -->
-                            <a href="index.html" class="logo">
+                            <a href="{{('/')}}" class="logo">
                                 <img src="assets/images/make-up.png" align="klassy cafe html template">
                             </a>
                             <!-- ***** Logo End ***** -->
@@ -50,10 +116,10 @@
                                     <a href="javascript:;">Categories</a>
                                     <ul>
                                         <li><a href="{{url('/body')}}">Body</a></li>
-                                        <li><a href="{{url('/makeup')}}">Make up</a></li>
                                     </ul>
                                 </li>
                                 <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
+                                <li class="scroll-to-section"><a href="{{url('/')}}">Contact Us</a></li> 
                                 <li>
                                 @if (Route::has('login'))
                                 <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
@@ -88,96 +154,64 @@
                 </div>
             </div>
             <br><br>
-           
-            <br> <div class="row">
-            <aside class="col-lg-2"> 
-        <!-- ============= COMPONENT ============== -->
-        <nav class="sidebar card py-2 mb-4" >
-        <ul class="nav flex-column" id="nav_accordion">
-            <li class="nav-item">
-                <a class="nav-link" href="#">iUNIK</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">innisfree</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Somebymi</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Cosrx</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Illiyoon</a>
-            </li>
-            
-        </ul>
-        </nav>
-        <!-- ============= COMPONENT END// ============== -->	
-                </aside>
-                <main>
-                    <div class="container">
-                        @foreach ( $products as $id)
-                        <form action="{{route('cart.store')}}" method="post" enctype="multipart/form-data">
-                          @csrf 
-                         <div class="row">
-                            <div class="col-4">
-                            <div class="thumbnail">
-                              <a href="/productimage/{{$id->image}}" target="_blank">
-                                <img src="/productimage/{{$id->image}}" alt="Lights" style="width:100%">
-                                <div class="caption">
-                                  <p><b>{{ $id->name }}</b></p>
-                                  <p>{{ $id->price }}</p> 
-                                </div>
-                                </a>
-                                <input type="hidden" value="{{ $id->id }}" name="id">
-                                <input type="hidden" value="{{ $id->name }}" name="name">
-                                <input type="hidden" value="{{ $id->price }}" name="price">
-                                <input type="hidden" value="{{ $id->image }}" name="image">
-                                <input type="number" value="1" name="quantity" min="1"  value="1" style="width: 50px;">
-                                {{-- <input type="number" name="quantity" min="1"  value="1" style="width: 50px;"> --}}
-                                <input type="submit" value="Add to Cart">
-                            </div>
-                          </div>
-                         </div>
-                        </form>  
-                      @endforeach
-                           
+        </header>
+            <br><br><br><br><br><br>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-2 col-sm-4 sidebar1">
+                        <br>
+                        <div class="left-navigation">
+                            <ul class="list">
+                                <h5><strong>BRANDS</strong></h5>
+                                <li><a href="{{url('/iunik')}}">iUNIK</li></a>
+                                <li><a href="{{url('/innisfree')}}">innisfree</li></a>
+                                <li><a href="{{url('/some')}}">Somebymi</li></a>
+                                <li><a href="{{url('/illiyoon')}}">Illiyoon</li></a>
+                                <li><a href="{{url('/cosrx')}}">Cosrx</li></a>
+                            </ul>
+                            <br>
+                        </div>
                     </div>
-                </main>
+                    <div class="col-md-10 col-sm-8 main-content">
+            <h2 class="font-weight-bold mb-2">From the Shop</h2>
+            <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
+                        
+            <div class="row pb-5 mb-4">
+                @foreach ($products as $id )
+              <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+                <!-- Card-->
+                <div class="card rounded shadow-sm border-0">
+                    
+                  <div class="card-body p-4"><img src="/productimage/{{$id->image}}" width="300px" alt="" class="img-fluid d-block mx-auto mb-3">
+                    <h5> <a href="#" class="text-dark">{{$id->name}}</a></h5>
+                    <p class="small text-muted font-italic">RM {{$id->price}}</p>
+                    <ul class="list-inline small">
+                      <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                      <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                      <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                      <li class="list-inline-item m-0"><i class="fa fa-star text-success"></i></li>
+                      <li class="list-inline-item m-0"><i class="fa fa-star-o text-success"></i></li>
+                    </ul>
+                    <form action="{{ route('cart.store') }}" method="POST" enctype="multipart/form-data">
+                        @csrf
+                        <input type="hidden" value="{{ $id->id }}" name="id">
+                        <input type="hidden" value="{{ $id->name }}" name="name">
+                        <input type="hidden" value="{{ $id->quantity}}" name="quantity">
+                        <input type="hidden" value="{{ $id->price}}"  name="price">
+                        <input type="hidden" value="{{ $id->image }}"  name="image">
+                        <input type="hidden" value="1" name="quantity">
+                        <button class="btn btn-outline-primary">Add to Cart</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              @endforeach
+              
             </div>
-         
-           
-                  <script>
-                    document.addEventListener("DOMContentLoaded", function(){
-                document.querySelectorAll('.sidebar .nav-link').forEach(function(element){
-    
-                 element.addEventListener('click', function (e) {
-
-                let nextEl = element.nextElementSibling;
-                let parentEl  = element.parentElement;	
-
-                if(nextEl) {
-                    e.preventDefault();	
-                    let mycollapse = new bootstrap.Collapse(nextEl);
-                
-                if(nextEl.classList.contains('show')){
-                mycollapse.hide();
-                } else {
-                    mycollapse.show();
-                    // find other submenus with class=show
-                    var opened_submenu = parentEl.parentElement.querySelector('.submenu.show');
-                    // if it exists, then close all of them
-                    if(opened_submenu){
-                    new bootstrap.Collapse(opened_submenu);
-                }
-                            }
-                        }
-                    }); // addEventListener
-                }) // forEach
-                }); 
-                </script>
+                    </div>
+                </div>
+            
             <br><br>
-
             <footer>
               <div class="container">
                   <div class="row">
@@ -205,7 +239,7 @@
                   </div>
               </div>
           </footer>
-        </header>
+       
         
     </body>
     </html>

@@ -1,4 +1,4 @@
-<!-- <section class="section" id="menu">
+<section class="section" id="menu">
     <div class="container">
         <div class="row">
             <div class="col-lg-4">
@@ -73,4 +73,3 @@
             </div>
         </div>
     </div>
-</section> -->

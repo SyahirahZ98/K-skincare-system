@@ -25,7 +25,7 @@
        <div class="form-group row">
         <label for="colFormLabel" class="col-sm-2 col-form-label">Speciality</label>
         <div class="col-sm-10">
-        <input style="color:blue" type="text" name="nspeciality" value="{{$data->speciality}}">
+        <input style="color:blue" type="text" name="speciality" value="{{$data->speciality}}">
     </div><br>
     <div class="form-group row">
       <label for="colFormLabel" class="col-sm-2 col-form-label">Old Image</label>

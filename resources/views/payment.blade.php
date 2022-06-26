@@ -1,194 +1,218 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {
-  font-family: Arial;
-  font-size: 17px;
-  padding: 8px;
-}
+<html lang="en">
 
-* {
-  box-sizing: border-box;
-}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Checkout </title>
+        <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
-.row {
-  display: -ms-flexbox; /* IE10 */
-  display: flex;
-  -ms-flex-wrap: wrap; /* IE10 */
-  flex-wrap: wrap;
-  margin: 0 -16px;
-}
+        <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+    
+        <link rel="stylesheet" href="assets/css/templatemo-klassy-cafe.css">
+    
+        <link rel="stylesheet" href="assets/css/owl-carousel.css">
+    
+        <link rel="stylesheet" href="assets/css/lightbox.css">
+    
+    </head>
 
-.col-25 {
-  -ms-flex: 25%; /* IE10 */
-  flex: 25%;
-}
-
-.col-50 {
-  -ms-flex: 50%; /* IE10 */
-  flex: 50%;
-}
-
-.col-75 {
-  -ms-flex: 75%; /* IE10 */
-  flex: 75%;
-}
-
-.col-25,
-.col-50,
-.col-75 {
-  padding: 0 16px;
-}
-
-.container {
-  background-color: #f2f2f2;
-  padding: 5px 20px 15px 20px;
-  border: 1px solid lightgrey;
-  border-radius: 3px;
-}
-
-input[type=text] {
-  width: 100%;
-  margin-bottom: 20px;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 3px;
-}
-
-label {
-  margin-bottom: 10px;
-  display: block;
-}
-
-.icon-container {
-  margin-bottom: 20px;
-  padding: 7px 0;
-  font-size: 24px;
-}
-
-.btn {
-  background-color: #04AA6D;
-  color: white;
-  padding: 12px;
-  margin: 10px 0;
-  border: none;
-  width: 100%;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 17px;
-}
-
-.btn:hover {
-  background-color: #45a049;
-}
-
-a {
-  color: #2196F3;
-}
-
-hr {
-  border: 1px solid lightgrey;
-}
-
-span.price {
-  float: right;
-  color: grey;
-}
-
-/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
-@media (max-width: 800px) {
-  .row {
-    flex-direction: column-reverse;
-  }
-  .col-25 {
-    margin-bottom: 20px;
-  }
-}
-</style>
-</head>
-<body>
-
-<h2>Responsive Checkout Form</h2>
-<p>Resize the browser window to see the effect. When the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other.</p>
-<div class="row">
-  <div class="col-75">
-    <div class="container">
-      <form action="/action_page.php">
+    <body>
+        <header class="header-area header-sticky">
+            <div class="container">
+                <div class="row">
+                    <div class="col-10">
+                        <nav class="main-nav">
+                            <!-- ***** Logo Start ***** -->
+                            <a href="index.html" class="logo">
+                                <img src="assets/images/make-up.png" align="klassy cafe html template">
+                            </a>
+                            <!-- ***** Logo End ***** -->
+                            <!-- ***** Menu Start ***** -->
+                            <ul class="nav">
+                                <li class="scroll-to-section"><a href="{{url('/')}}" class="active">Home</a></li>
+                               
+                                <li class="submenu">
+                                    <a href="javascript:;">Categories</a>
+                                    <ul>
+                                        <li><a href="{{url('/skincare')}}">Skincare</a></li>
+                                        <li><a href="{{url('/body')}}">Body</a></li>
+                    
+                                    </ul>
+                                </li>
+                                <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
+                                <li class="scroll-to-section"><a href="{{url('/order')}}">View Order</a></li> 
+                                <li>
+                                @if (Route::has('login'))
+                                <div class="hidden fixed top-0 right-0 px-6 py-4 sm:block">
+                                    @auth
+                                    <li>
+                                        <x-app-layout>
       
-        <div class="row">
-          <div class="col-50">
-            <h3>Billing Address</h3>
-            <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" name="firstname" placeholder="John M. Doe">
-            <label for="email"><i class="fa fa-envelope"></i> Email</label>
-            <input type="text" id="email" name="email" placeholder="john@example.com">
-            <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
-            <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
-            <label for="city"><i class="fa fa-institution"></i> City</label>
-            <input type="text" id="city" name="city" placeholder="New York">
-
-            <div class="row">
-              <div class="col-50">
-                <label for="state">State</label>
-                <input type="text" id="state" name="state" placeholder="NY">
-              </div>
-              <div class="col-50">
-                <label for="zip">Zip</label>
-                <input type="text" id="zip" name="zip" placeholder="10001">
-              </div>
+                                        </x-app-layout>
+                                    </li>
+                                    @else
+                                       <li><a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline">Log in</a></li>
+                
+                                        @if (Route::has('register'))
+                                            <li><a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline">Register</a></li>
+                                        @endif
+                                    @endauth
+                                </div>
+                            @endif
+                            </li>
+                            <li class="scroll-to-section">
+                            <i class="bi bi-cart"></i>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="110" fill="currentColor" class="bi bi-cart" viewBox="0 5 16 16">
+                                    <a href="{{url('/cart')}}">
+                                    <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                </svg>                       
+                            
+                            </li>
+                            </ul>        
+                            <a class='menu-trigger'>
+                                <span></span>
+                            </a>
+                            <!-- ***** Menu End ***** -->
+                        </nav>
+                    </div>
+                </div>
             </div>
-          </div>
-
-          <div class="col-50">
-            <h3>Payment</h3>
-            <label for="fname">Accepted Cards</label>
-            <div class="icon-container">
-              <i class="fa fa-cc-visa" style="color:navy;"></i>
-              <i class="fa fa-cc-amex" style="color:blue;"></i>
-              <i class="fa fa-cc-mastercard" style="color:red;"></i>
-              <i class="fa fa-cc-discover" style="color:orange;"></i>
-            </div>
-            <label for="cname">Name on Card</label>
-            <input type="text" id="cname" name="cardname" placeholder="John More Doe">
-            <label for="ccnum">Credit card number</label>
-            <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444">
-            <label for="expmonth">Exp Month</label>
-            <input type="text" id="expmonth" name="expmonth" placeholder="September">
-            <div class="row">
-              <div class="col-50">
-                <label for="expyear">Exp Year</label>
-                <input type="text" id="expyear" name="expyear" placeholder="2018">
-              </div>
-              <div class="col-50">
-                <label for="cvv">CVV</label>
-                <input type="text" id="cvv" name="cvv" placeholder="352">
-              </div>
-            </div>
-          </div>
-          
+        </header>
+        <div class="mt-20">
+           
+            @if(session()->get('Success'))
+            <div class="p-4 mb-4 text-sm text-green-700 bg-green-100 rounded-lg dark:bg-green-200 dark:text-green-80" role="alert">
+                <span class="font-medium">
+            {{ session()->get('Success') }}  
+        </span> </div><br />
+    </div>       
+        @endif
+            
         </div>
-        <label>
-          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
-        </label>
-        <input type="submit" value="Continue to checkout" class="btn">
-      </form>
-    </div>
-  </div>
-  <div class="col-25">
-    <div class="container">
-      <h4>Cart <span class="price" style="color:black"><i class="fa fa-shopping-cart"></i> <b>4</b></span></h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-      <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
-    </div>
-  </div>
-</div>
+        <div class="container p-12 mx-auto">
+            <div class="flex flex-col w-full px-0 mx-auto md:flex-row">
+                <div class="flex flex-col md:w-full">
+                    <h2 class="mb-4 font-bold md:text-xl text-heading ">Shipping Address
+                    </h2>
+                    <form class="justify-center w-full mx-auto" action="{{url('/showdetails')}}" method="POST" enctype="multipart/form-data">
+                      @csrf
+                        <div class="">
+                            <div class="space-x-0 lg:flex lg:space-x-4">
+                                <div class="w-full lg:w-1/2">
+                                    <label for="firstName" class="block mb-3 text-sm font-semibold text-gray-500">First
+                                        Name</label>
+                                    <input name="firstname" type="text" placeholder="First Name"
+                                        class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                </div>
+                                <div class="w-full lg:w-1/2 ">
+                                    <label for="firstname" class="block mb-3 text-sm font-semibold text-gray-500">Last
+                                        Name</label>
+                                    <input name="lastname" type="text" placeholder="Last Name"
+                                        class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="w-full">
+                                    <label for="email"
+                                        class="block mb-3 text-sm font-semibold text-gray-500">Email</label>
+                                    <input name="email" type="text" placeholder="Email"
+                                        class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                </div>
+                            </div>
+                            <div class="mt-4">
+                                <div class="w-full">
+                                    <label for="address"
+                                        class="block mb-3 text-sm font-semibold text-gray-500">Address</label>
+                                    <textarea
+                                        class="w-full px-4 py-3 text-xs border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                        name="address" cols="20" rows="4" placeholder="Address"></textarea>
+                                </div>
+                            </div>
+                            <div class="space-x-0 lg:flex lg:space-x-4">
+                                <div class="w-full lg:w-1/2">
+                                    <label for="city"
+                                        class="block mb-3 text-sm font-semibold text-gray-500">City</label>
+                                    <input name="city" type="text" placeholder="City"
+                                        class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                </div>
+                                <div class="w-full lg:w-1/2 ">
+                                    <label for="code" class="block mb-3 text-sm font-semibold text-gray-500">
+                                        Postcode</label>
+                                    <input name="code" type="text" placeholder="Post Code"
+                                        class="w-full px-4 py-3 text-sm border border-gray-300 rounded lg:text-sm focus:outline-none focus:ring-1 focus:ring-blue-600">
+                                </div>
+                            </div>
+                            <div class="flex items-center mt-4">
+                                <label class="flex items-center text-sm group text-heading">
+                                    <input type="checkbox"
+                                        class="w-5 h-5 border border-gray-300 rounded focus:outline-none focus:ring-1">
+                                    <span class="ml-2">Save this information for next time</span></label>
+                            </div>
+                            <div class="relative pt-3 xl:pt-6"><label for="notes"
+                                    class="block mb-3 text-sm font-semibold text-gray-500"> Notes
+                                    (Optional)</label><textarea name="notes"
+                                    class="flex items-center w-full px-4 py-3 text-sm border border-gray-300 rounded focus:outline-none focus:ring-1 focus:ring-blue-600"
+                                    rows="4" placeholder="Notes for delivery"></textarea>
+                            </div><br>
+                            <h2 class="mb-4 font-bold md:text-xl text-heading ">Upload Invoice
+                            </h2>
+                            <div>
+                              <input type="file" name="image" required="">
+                          </div>
 
-</body>
+                            <div class="mt-4">
+                                <button class="w-full px-6 py-2 text-blue-200 bg-blue-600 hover:bg-blue-900">Check Out
+                                    </button>
+                            </div>
+                          </form>
+                        </div>
+                    </form>
+                </div>
+                <div class="flex flex-col w-full ml-0 lg:ml-12 lg:w-2/5">
+                    <div class="pt-12 md:pt-0 2xl:ps-4">
+                        <h2 class="text-xl font-bold">Order Summary</h2>
+                        <div class="mt-8">
+                            <div class="flex flex-col space-y-4">
+                                <div class="flex space-x-4">
+                                  @foreach ($cartItems as $products)  
+                                  <div>
+                                    <img src="/productimage/{{ $products->attributes->image }}" alt="image"
+                                            class="w-60">
+                                    </div>
+                                    <div>
+                                        <h3 class="text-xl font-bold">Details</h2>
+                                        <p class="text-sm">{{ $products->name }}</p>
+                                        <span> RM {{ $products->price }}</span>
+                                        <p class="text-sm">Quantity: {{ $products->quantity}}</p>
+                                    </div>
+                                    <div>
+                                        <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none"
+                                            viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M6 18L18 6M6 6l12 12" />
+                                        </svg>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="flex p-4 mt-4">
+                            <h2 class="text-xl font-bold">Payment Details</h2>
+                        </div>
+                        <div
+                            class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                            Shipping Tax :<span class="ml-2">RM5</span></div>
+                        <div
+                            class="flex items-center w-full py-4 text-sm font-semibold border-b border-gray-300 lg:py-5 lg:px-3 text-heading last:border-b-0 last:text-base last:pb-0">
+                            Total :<span class="ml-2">RM{{ Cart::getTotal()+5}}</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>

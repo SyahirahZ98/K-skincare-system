@@ -10,6 +10,8 @@ use App\Http\Controllers\CartController;
 
 use App\Http\Controllers\ProductController;
 
+use App\Http\Controllers\PaymentController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -55,9 +57,15 @@ Route::get("/infoconsult",[HomeController::class,"infoconsult"]);
 
 Route::get("/skincare",[HomeController::class,"skincare"]);
 
+Route::get("/iunik",[HomeController::class,"iunik"]);
+Route::get("/innisfree",[HomeController::class,"innisfree"]);
+Route::get("/some",[HomeController::class,"somebymi"]);
+Route::get("/illiyoon",[HomeController::class,"illiyoon"]);
+Route::get("/cosrx",[HomeController::class,"cosrx"]);
+
 Route::get("/body",[HomeController::class,"body"]);
 
-Route::get("/makeup",[HomeController::class,"makeup"]);
+Route::get("/order",[HomeController::class,"order"]);
 
 //Route::post("/addtocart/{id}",[HomeController::class,"addtocart"]);
 
@@ -69,6 +77,9 @@ Route::post('cart', [CartController::class, 'addToCart'])->name('cart.store');
 Route::post('update-cart', [CartController::class, 'updateCart'])->name('cart.update');
 Route::post('remove', [CartController::class, 'removeCart'])->name('cart.remove');
 Route::post('clear', [CartController::class, 'clearAllCart'])->name('cart.clear');
+Route::get('payment', [PaymentController::class, 'payment']);
+
+Route::post('showdetails', [PaymentController::class, 'showdetails']);
 
 
 Route::get("/redirects",[HomeController::class,"redirects"]);

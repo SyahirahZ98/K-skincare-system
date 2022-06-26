@@ -5,16 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Product;
+
 use App\Models\Cart;
+
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
     
     public function cartList()
     {
-        $cartItems = \Cart::getContent();
-        // dd($cartItems);
-        return view('layouts.cart', compact('cartItems'));
+        if(Auth::id()){
+            $cartItems = \Cart::getContent();
+            return view('layouts.cart', compact('cartItems'));
+        }
+        else{
+            return redirect('/login');
+        } 
     }
 
 
@@ -26,13 +33,13 @@ class CartController extends Controller
             'name' => $request->name,
             'price' => $request->price,
             'quantity' => $request->quantity,
-            // 'attributes' => array(
-            //     'image' => $request->image,
-            // )
-            'image' => $request->image,
+             'attributes' => array(
+                'image' => $request->image,
+             )
+
         ]);
         session()->flash('success', 'Product is Added to Cart Successfully !');
-
+        
         return redirect()->route('cart.list');
     }
 
@@ -69,4 +76,5 @@ class CartController extends Controller
 
         return redirect()->route('cart.list');
     }
+
 }

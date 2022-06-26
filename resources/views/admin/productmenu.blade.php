@@ -18,8 +18,8 @@
         <br>
         <div class="form-group row">
           <div class="form-group col-md-6">
-          <label for="colFormLabelSm" class="col-sm-2 col-form-label">Title </label>
-               <input style="color: black" type="text" name="title" placeholder="Write a title" required>
+          <label for="colFormLabelSm" class="col-sm-2 col-form-label">Product Name</label>
+               <input style="color: black" type="text" name="name" placeholder="Write a name" required>
            </div>
            <div class="form-group row">
             <div class="form-group col-md-6">
@@ -47,7 +47,7 @@
   
     <div class="container"  style="position:relative ; top: 60px; right: -5px">
       <table class="table table-hover" bgcolor="black" border="4px">
-          <tr>
+          <tr align="center">
           <th style="padding: 30px">Product Name </th>
           <th style="padding: 30px">Price </th>
           <th style="padding: 30px">Description</th>
@@ -58,7 +58,7 @@
   @foreach ($data as $data)
   
   <tr align="center">
-    <td>{{$data->title}}</td>
+    <td>{{$data->name}}</td>
     <td>{{$data->price}}</td>
     <td>{{$data->description}}</td>
     <td><img height="200" width="200" src="/productimage/{{$data->image}}"></td>
@@ -68,10 +68,10 @@
 
   @endforeach
 </table>
+</div>
+   <br><br>
    </div>
-   </div>
-    <br><br>
-   
+
     @include("admin.adminscript")
   </body>
 </html>

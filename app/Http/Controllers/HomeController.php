@@ -16,6 +16,8 @@ use App\Models\Cart;
 
 use App\Models\Body;
 
+use App\Models\Payment;
+
 class HomeController extends Controller
 {
     public function index()
@@ -31,7 +33,7 @@ class HomeController extends Controller
         $data2=consultant::all();
 
       $usertype= Auth::user()->usertype;
-      if($usertype=='2')
+      if($usertype=='1')
      {
          return view('admin.admin');
      } 
@@ -49,50 +51,77 @@ class HomeController extends Controller
 
     public function skincare()
     {
+
+        $iunik = Product::where('description','iunik')->get();
+        $innisfree = Product::where('description','innisfree')->get();
+        $somebymi = Product::where('description','somebymi')->get();
+        $illiyoon = Product::where('description','yoon')->get();
+        $cosrx = Product::where('description','cosrx')->get();
+
         $products = Product::all();
-        return view('skincare',compact('products'));
+        return view('skincare',compact('iunik','innisfree','somebymi','illiyoon','cosrx','products'));
+    }
+
+    public function iunik(){
+        $iunik = Product::where('description','iunik')->get();
+        return view('skincare.iunik',compact('iunik'));
+    }
+
+    public function innisfree(){
+        $innisfree = Product::where('description','innisfree')->get();
+        return view('skincare.innisfree',compact('innisfree'));
+    }
+    public function somebymi(){
+        $somebymi = Product::where('description','somebymi')->get();
+        return view('skincare.some',compact('somebymi'));
+    }
+    public function illiyoon(){
+        $illiyoon = Product::where('description','yoon')->get();
+        return view('skincare.illiyoon',compact('illiyoon'));
+    }
+    public function cosrx(){
+        $cosrx = Product::where('description','cosrx')->get();
+        return view('skincare.cosrx',compact('cosrx'));
     }
 
     public function body()
     {
-       
-        return view('body');
+        $innisfree = Product::where('description','innisfree')->get();
+        $somebymi = Product::where('description','somebymi')->get();
+        $illiyoon = Product::where('description','yoon')->get();
+        $pyunkang = Product::where('description','pyun')->get();
+        $drjart = Product::where('description','dr')->get();
+        $products = Product::all();
+        return view('body',compact('innisfree','somebymi','illiyoon','pyunkang','drjart','products'));
     }
 
-    public function makeup()
+    public function innis(){
+        $innisfree = Product::where('description','innisfree')->get();
+        return view('body.innisfree',compact('innisfree'));
+    }
+    public function some(){
+        $somebymi = Product::where('description','somebymi')->get();
+        return view('body.somebymi',compact('somebymi'));
+    }
+    public function illi(){
+        $illiyoon = Product::where('description','yoon')->get();
+        return view('body.illiyoon',compact('illiyoon'));
+    }
+    public function pyunkang(){
+        $pyunkang = Product::where('description','pyun')->get();
+        return view('body.pyunkang',compact('pyunkang'));
+    }
+    public function drjart(){
+        $drjart = Product::where('description','dr')->get();
+        return view('body.drjart',compact('drjart'));
+    }
+
+    public function order ()
     {
-        return view('makeup');
+        $data=Payment::all();
+        return view("order", compact("data"));
     }
 
-    public function addtocart(Request $request,$id)
-    {
-        $data=cart::all();
-        if(Auth::id())
-        {
-            $user_id=Auth::id();
-            $productid=$id;
-            $quantity=$request->quantity;
-
-            $cart=new cart;
-            $cart->user_id=$user_id;
-            $cart->product_id=$productid;
-            $cart->quantity=$quantity;
-            $cart->save();
-
-            return redirect()->back(); 
-        }
-        else 
-        {
-            return redirect('/login');
-        }
-        
-    }
-
-    public function cart(Request $request,$id)
-    {
-        $cart_product = Cart::all();
-        $products=Cart::where('user_id',$id)->join('products','carts.product_id','=','product_id')->get();
-        return view('cart', compact('cart_product','products'));
-    }
+   
 }
 

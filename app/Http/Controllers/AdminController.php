@@ -50,7 +50,7 @@ class AdminController extends Controller
         $request->image->move('productimage',$imagename);
         $data->image=$imagename;
 
-        $data->title=$request->title;
+        $data->name=$request->name;
         $data->price=$request->price;
         $data->description=$request->description;
         $data->save();
@@ -72,7 +72,7 @@ class AdminController extends Controller
         $request->image->move('productimage',$imagename);
         $data->image=$imagename;
 
-        $data->name=$request->title;
+        $data->name=$request->name;
         $data->price=$request->price;
         $data->description=$request->description;
         $data->save();
@@ -150,6 +150,14 @@ class AdminController extends Controller
         $data->delete();
         return redirect()->back();
     }
+
+   
+    public function vieworder()
+    {
+           $data=Payment::all();
+           return view("admin.adminorder", compact("data")); 
+        }
+    }
     
-}
+
 

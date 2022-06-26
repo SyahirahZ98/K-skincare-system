@@ -48,7 +48,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <header class="header-area header-sticky">
         <div class="container">
             <div class="row">
-                <div class="col-11">
+                <div class="col-10">
                     <nav class="main-nav">
                         <!-- ***** Logo Start ***** -->
                         <a href="index.html" class="logo">
@@ -59,25 +59,11 @@ https://templatemo.com/tm-558-klassy-cafe
                         <ul class="nav">
                             <li class="scroll-to-section"><a href="#top" class="active">Home</a></li>
                             <li class="scroll-to-section"><a href="#about">About</a></li>
-                           	
-                        <!-- 
-                            <li class="submenu">
-                                <a href="javascript:;">Drop Down</a>
-                                <ul>
-                                    <li><a href="#">Drop Down Page 1</a></li>
-                                    <li><a href="#">Drop Down Page 2</a></li>
-                                    <li><a href="#">Drop Down Page 3</a></li>
-                                </ul>
-                            </li>
-                        -->
-                            <li class="scroll-to-section"><a href="#menu">Menu</a></li> 
                             <li class="submenu">
                                 <a href="javascript:;">Categories</a>
                                 <ul>
                                     <li><a href="{{url('/skincare')}}">Skincare</a></li>
                                     <li><a href="{{url('/body')}}">Body</a></li>
-                                    <li><a href="{{url('/makeup')}}">Make up</a></li>
-                
                                 </ul>
                             </li>
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
@@ -101,14 +87,13 @@ https://templatemo.com/tm-558-klassy-cafe
                             </div>
                         @endif
                         </li>
-                        <li>
-                        @auth
+                        <li class="scroll-to-section">
+                        <i class="bi bi-cart"></i>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="110" fill="currentColor" class="bi bi-cart" viewBox="0 5 16 16">
-                                <a href="{{url('/cart',Auth::user()->id)}}">
+                                <a href="{{url('/cart')}}">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>
-                                                    
-                        @endauth
+                            </svg>                       
+                            
                         </li>
                         </ul>        
                         <a class='menu-trigger'>
@@ -191,10 +176,10 @@ https://templatemo.com/tm-558-klassy-cafe
                             Please contact us for more information.</p>
                         <div class="row">
                             <div class="col-4">
-                                <img src="assets/images/about-thumb-01.jpg" alt="">
+                                <img src="assets/images/body/i4.png" alt="">
                             </div>
                             <div class="col-4">
-                                <img src="assets/images/about-thumb-02.jpg" alt="">
+                                <img src="assets/images/skincare/i2.png" alt="">
                             </div>
                             <div class="col-4">
                                 <img src="assets/images/about-thumb-03.jpg" alt="">
@@ -256,9 +241,10 @@ https://templatemo.com/tm-558-klassy-cafe
                                                 <div class="left-list">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Face Powder Loreal Age Perfect Creamy  </h4>
-                                                            <p>Hydrating ingeredients to smooth skin and blurs appearance of lines and wrinkles</p>
+                                                            <img src="assets/images/skincare/c1.jpg" alt="">
+                                                            <h4>Cosrx</h4>
+                                                            <h6>Advanced Snail 96 Mucin Power Essence</h6>
+                                                            <p>Protect the skin from moisture loss and keeps skin smooth and healthy</p>
                                                             <div class="price">
                                                                 <h6>RM45</h6>
                                                             </div>
@@ -266,23 +252,24 @@ https://templatemo.com/tm-558-klassy-cafe
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Tarte Babassu Foundcealer Foundation</h4>
-                                                            <p>Contains vitamin A and E to help hydrate, regenerate and condition skin
-                                                                and also contains HA to moisture for optimal hydration.
-                                                            </p>
+                                                            <img src="assets/images/body/p1.jpg" alt="">
+                                                            <h4>Pyunkang Yul</h4>
+                                                            <h6>Intensive Ceramide Lotion</h6>
+                                                            <p>Provides soothing, nourishing hydration for body</p>
                                                             <div class="price">
-                                                                <h6>RM80</h6>
+                                                                <h6>RM81.50</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Lip Gloss</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/body/d2.jpg" alt="">
+                                                            <h4>Dr Jart+</h4>
+                                                            <h6>Ceramidin Body Lotion</h6>
+                                                            <p>A cica cream that boosts skin's to irritation in 24 hours and 
+                                                                help sooth redness.</p>
                                                             <div class="price">
-                                                                <h6>$9.90</h6>
+                                                                <h6>RM104</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -294,31 +281,35 @@ https://templatemo.com/tm-558-klassy-cafe
                                                 <div class="right-list">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Mascara</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/skincare/c4.jpg" alt="">
+                                                            <h4>Cosrx</h4>
+                                                            <h6>Centella Water Alcohol-Free Toner</h6>
+                                                            <p>Recover and rejuvenate weakened and tired skin.</p>
                                                             <div class="price">
-                                                                <h6>$6.50</h6>
+                                                                <h6>RM45.50</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Body Lotion</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/makeup/banila primer.jpg" alt="">
+                                                            <h4>Banila.co</h4>
+                                                            <h6>Prime Primer Hydrating</h6>
+                                                            <p>Hydrating primer that covers skin imperfections while giving radiant finish</p>
                                                             <div class="price">
-                                                                <h6>$5.00</h6>
+                                                                <h6>RM105</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Perfume</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/makeup/bb chusion la.jpg" alt="">
+                                                            <h4>Laneige</h4>
+                                                            <h6>BB Cushion Pore Control SPF 50+ PA++</h6>
+                                                            <p>A new concept cushion BB cream with 5 active ingredients for 
+                                                                whitening,sunscreen,sweat proof,soothing and makeup effects.</p>
                                                             <div class="price">
-                                                                <h6>$4.10</h6>
+                                                                <h6>140</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -334,31 +325,37 @@ https://templatemo.com/tm-558-klassy-cafe
                                                 <div class="left-list">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Mascara</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/makeup/la serum.jpg" alt="">
+                                                            <h4>Laneige</h4>
+                                                           <h6>Glowy Makeup Serum</h6>
+                                                            <p>Hydrating serum and glass skin primer that keeps oil in check 
+                                                                for visibly smoother skin and long-lasting makeup wear.</p>
                                                             <div class="price">
-                                                                <h6>$14</h6>
+                                                                <h6>RM112</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Body Lotion</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/skincare/y1.jpg" alt="">
+                                                            <h4>Illiyoon</h4>
+                                                            <h6>Oil Smoothing Cleanser</h6>
+                                                            <p>Oil typed body cleanser with rich foam that softly 
+                                                                cleanses and moisturizes dry skin without irritation and tight feeling after shower.</p>
                                                             <div class="price">
-                                                                <h6>$18</h6>
+                                                                <h6>RM55</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Perfume</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/body/y3.jpg" alt="">
+                                                            <h4>Illiyoon</h4>
+                                                            <h6>Collagen Essential Cream in Lotion</h6>
+                                                            <p>Low-molecular collagen is absorbed into the skin
+                                                                 deeply, and makes your skin tired and tired over time with a healthy and elastic skin.</p>
                                                             <div class="price">
-                                                                <h6>$22</h6>
+                                                                <h6>RM45</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -370,31 +367,34 @@ https://templatemo.com/tm-558-klassy-cafe
                                                 <div class="right-list">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Face Powder Loreal Age Perfect Creamy  </h4>
-                                                            <p>Hydrating ingeredients to smooth skin and blurs appearance of lines and wrinkles</p>
+                                                            <img src="assets/images/skincare/y3.jpg" alt="">
+                                                            <h4>Illiyoon</h4>
+                                                            <h6>Ceramide Derma Moisturing Facial Cream </h6>
+                                                            <p>This mild moisturizer instantly calms irritated skin and strengthen skin barrier for a healthy complexion.</p>
                                                             <div class="price">
-                                                                <h6>RM45</h6>
+                                                                <h6>RM28</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Face Powder</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/skincare/y4.jpg" alt="">
+                                                            <h4>Illiyoon</h4>
+                                                            <h6>Ceramide Derma Relief Essence Skin Softener</h6>
+                                                            <p>This mild skin softer instantly calms irritated skin and delivers deep moisture.</p>
                                                             <div class="price">
-                                                                <h6>$20</h6>
+                                                                <h6>RM44</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Lip Gloss</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/skincare/c3.jpg" alt="">
+                                                            <h4>Corsx</h4>
+                                                            <h6>AC Collection Blemish spot Clearing Serum</h6>
+                                                            <p>Provides a total solution for calming, tone-balancing, recovering from acne damages</p>
                                                             <div class="price">
-                                                                <h6>$30</h6>
+                                                                <h6>RM85</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -410,33 +410,35 @@ https://templatemo.com/tm-558-klassy-cafe
                                                 <div class="left-list">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-05.png" alt="">
-                                                            <h4>Body Lotion</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/skincare/centella calming gel.png" alt="">
+                                                            <h4>iUNIK</h4>
+                                                            <h6>Centella Calming Gel Cream</h6>
+                                                            <p>Refreshing and moisturizing oil-free cream that makes the skin clearer and more vibrant.</p>
                                                             <div class="price">
-                                                                <h6>$14</h6>
+                                                                <h6>RM35</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-03.png" alt="">
-                                                            <h4>Lip Gloss</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/skincare/propolis vitamin serum.png" alt="">
+                                                            <h4>iUNIK</h4>
+                                                            <h6>Propolis Vitamin Synergy Serum</h6>
+                                                            <p>Contains propolis and sea buckthorn extracts to soothe, nourish and revitalize at the same time.</p>
                                                             <div class="price">
-                                                                <h6>$18</h6>
+                                                                <h6>RM50</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-02.png" alt="">
-                                                            <h4>Tarte Babassu Foundcealer Foundation</h4>
-                                                            <p>Contains vitamin A and E to help hydrate, regenerate and condition skin
-                                                                and also contains HA to moisture for optimal hydration.
+                                                            <img src="assets/images/makeup/peri ink airy.png" alt="">
+                                                            <h4>Peripera</h4>
+                                                            <h6>Ink Airy Velvet</h6>
+                                                            <p>Extremely dry and chapped lips can feel the moisture of Ink Airy Velvet that leaves you out of words with just one touch.
                                                             </p>
                                                             <div class="price">
-                                                                <h6>RM80</h6>
+                                                                <h6>RM40</h6>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -448,31 +450,34 @@ https://templatemo.com/tm-558-klassy-cafe
                                                 <div class="right-list">
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-06.png" alt="">
-                                                            <h4>Perfume</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/makeup/la base corrector.jpg" alt="">
+                                                            <h4>Laneige</h4>
+                                                            <h6>Water Glow Base Corrector SPF 41 PA++</h6>
+                                                            <p>Tone correction base that creates skin look brighter, youthful and as flawless as a baby's</p>
                                                             <div class="price">
-                                                                <h6>$8.50</h6>
+                                                                <h6>RM105</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-01.png" alt="">
-                                                            <h4>Face Powder Loreal Age Perfect Creamy  </h4>
-                                                            <p>Hydrating ingeredients to smooth skin and blurs appearance of lines and wrinkles</p>
+                                                            <img src="assets/images/makeup/e eyeliner.png" alt="">
+                                                            <h4>Etude House</h4>
+                                                            <h6>Cute Eyes Maker</h6>
+                                                            <p>Get your puffy, smiley under eyes with ultra-simple Cute Eyes Maker</p>
                                                             <div class="price">
-                                                                <h6>RM45</h6>
+                                                                <h6>RM29</h6>
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div class="col-lg-12">
                                                         <div class="tab-item">
-                                                            <img src="assets/images/tab-item-04.png" alt="">
-                                                            <h4>Mascara</h4>
-                                                            <p>Lorem ipsum dolor sit amet, consectetur koit adipiscing elit, sed do.</p>
+                                                            <img src="assets/images/makeup/banila compact.png" alt="">
+                                                            <h4>Banila.co</h4>
+                                                            <h6>Covericious Power Fit Longwear Cushion</h6>
+                                                            <p>The foundation is touted to be a long-lasting product claiming to provide 36 hours of wear.</p>
                                                             <div class="price">
-                                                                <h6>$11</h6>
+                                                                <h6>RM124</h6>
                                                             </div>
                                                         </div>
                                                     </div>

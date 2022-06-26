@@ -20,21 +20,21 @@
                                 <span class="lg:hidden" title="Quantity">Qtd</span>
                                 <span class="hidden lg:inline">Quantity</span>
                               </th>
-                              <th class="hidden text-right md:table-cell"> price</th>
+                              <th class="hidden text-right md:table-cell"> Price</th>
                               <th class="hidden text-right md:table-cell"> Remove </th>
                             </tr>
                           </thead>
                           <tbody>
-                              @foreach ($cartItems as $item)
+                              @foreach ($cartItems as $products)
                             <tr>
                               <td class="hidden pb-4 md:table-cell">
-                                <a href="#">
-                                  <img src="{{ $item->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
-                                </a>
+                                
+                                  <img src="/productimage/{{ $products->attributes->image }}" class="w-20 rounded" alt="Thumbnail">
+                              
                               </td>
                               <td>
                                 <a href="#">
-                                  <p class="mb-2 md:ml-4">{{ $item->name }}</p>
+                                  <p class="mb-2 md:ml-4">{{ $products->name }}</p>
                                   
                                 </a>
                               </td>
@@ -44,23 +44,23 @@
                                     
                                     <form action="{{ route('cart.update') }}" method="POST">
                                       @csrf
-                                      <input type="hidden" name="id" value="{{ $item->id}}" >
-                                    <input type="number" name="quantity" value="{{ $item->quantity }}" 
+                                      <input type="hidden" name="id" value="{{ $products->id}}" >
+                                    <input type="number" name="quantity" value="{{ $products->quantity }}" 
                                     class="w-6 text-center bg-gray-300" />
-                                    <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">update</button>
+                                    <button type="submit" class="px-2 pb-2 ml-2 text-white bg-blue-500">Update</button>
                                     </form>
                                   </div>
                                 </div>
                               </td>
                               <td class="hidden text-right md:table-cell">
                                 <span class="text-sm font-medium lg:text-base">
-                                    ${{ $item->price }}
+                                    RM {{ $products->price }}
                                 </span>
                               </td>
                               <td class="hidden text-right md:table-cell">
                                 <form action="{{ route('cart.remove') }}" method="POST">
                                   @csrf
-                                  <input type="hidden" value="{{ $item->id }}" name="id">
+                                  <input type="hidden" value="{{ $products->id }}" name="id">
                                   <button class="px-4 py-2 text-white bg-red-600">x</button>
                               </form>
                                 
@@ -71,7 +71,7 @@
                           </tbody>
                         </table>
                         <div>
-                         Total: ${{ Cart::getTotal() }}
+                         Total: RM {{ Cart::getTotal() }}
                         </div>
                         <div>
                           <form action="{{ route('cart.clear') }}" method="POST">
@@ -79,8 +79,12 @@
                             <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
                           </form>
                         </div>
-
-
+                        <div>
+                          <form action="{{ url('/payment')}}" method="GET">
+                            @csrf
+                            <button>Check Out</button>
+                          </form>
+                        </div>
                       </div>
                     </div>
                   </div>

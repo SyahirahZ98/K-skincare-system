@@ -13,6 +13,6 @@ class ProductController extends Controller
     {
         $products = Product::all();
         $cart_product = Cart::all();
-        return view('cart', compact('products'));
+        return view('layout.cart', compact('products'));
     }
 }
