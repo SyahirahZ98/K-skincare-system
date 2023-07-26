@@ -43,6 +43,8 @@ Route::post("/reservation",[AdminController::class,"reservation"]);
 
 Route::get("/viewreservation",[AdminController::class,"viewreservation"]);
 
+Route::get("/adminorder",[AdminController::class,"adminorder"]);
+
 Route::get("/viewconsult",[AdminController::class,"viewconsult"]);
 
 Route::post("/uploadconsult",[AdminController::class,"uploadconsult"]);
@@ -64,12 +66,17 @@ Route::get("/illiyoon",[HomeController::class,"illiyoon"]);
 Route::get("/cosrx",[HomeController::class,"cosrx"]);
 
 Route::get("/body",[HomeController::class,"body"]);
+Route::get("/drjarts",[HomeController::class,"drjarts"]);
+Route::get("/innisfrees",[HomeController::class,"innisfrees"]);
+Route::get("/somes",[HomeController::class,"somes"]);
+Route::get("/illiyoons",[HomeController::class,"illiyoons"]);
+Route::get("/pyunkangs",[HomeController::class,"pyunkangs"]);
 
 Route::get("/order",[HomeController::class,"order"]);
+Route::get("/vieworder/{id}",[HomeController::class,"vieworder"]);
+Route::get("/deleteorder/{id}",[HomeController::class,"deleteorder"]);
 
 //Route::post("/addtocart/{id}",[HomeController::class,"addtocart"]);
-
-// Route::get("/cart/{id}",[HomeController::class,"cart"]);
 
 Route::post('/', [ProductController::class, 'productList'])->name('products.list');
 Route::get('/cart', [CartController::class, 'cartList'])->name('cart.list');

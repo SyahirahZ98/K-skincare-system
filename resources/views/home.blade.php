@@ -11,14 +11,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap" rel="stylesheet">
 
     <title>NuSya Care </title>
-<!--
-    
-TemplateMo 558 Klassy Cafe
-
-https://templatemo.com/tm-558-klassy-cafe
-
--->
-    <!-- Additional CSS Files -->
     <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
@@ -92,8 +84,7 @@ https://templatemo.com/tm-558-klassy-cafe
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="110" fill="currentColor" class="bi bi-cart" viewBox="0 5 16 16">
                                 <a href="{{url('/cart')}}">
                                 <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                            </svg>                       
-                            
+                            </svg>                      
                         </li>
                         </ul>        
                         <a class='menu-trigger'>
@@ -182,7 +173,7 @@ https://templatemo.com/tm-558-klassy-cafe
                                 <img src="assets/images/skincare/i2.png" alt="">
                             </div>
                             <div class="col-4">
-                                <img src="assets/images/about-thumb-03.jpg" alt="">
+                                <img src="assets/images/skincare/y1.jpg" alt="">
                             </div>
                         </div>
                     </div>
@@ -493,38 +484,33 @@ https://templatemo.com/tm-558-klassy-cafe
             </div>
         </div>
     </section>
-    <!-- ***** Chefs Area Ends ***** --> 
-    
-    <!-- ***** Footer Start ***** -->
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-4 col-xs-12">
-                    <div class="right-text-content">
-                            <ul class="social-icons">
-                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
-                            </ul>
-                    </div>
+ 
+  <footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-xs-12">
+                <div class="right-text-content">
+                        <ul class="social-icons">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                        </ul>
                 </div>
-                <div class="col-lg-4">
-                    <div class="logo">
-                        <a href="profile"><img src="assets/images/make-up.png" alt=""></a>
-                    </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="logo">
+                    <a href="profile"><img src="assets/images/make-up.png" alt=""></a>
                 </div>
-                <div class="col-lg-4 col-xs-12">
-                    <div class="left-text-content">
-                        <p>© Copyright NuSya Care.
-                        
-                       </p>
-                    </div>
+            </div>
+            <div class="col-lg-4 col-xs-12">
+                <div class="left-text-content">
+                    <p>© Copyright NuSya Care.
+                   </p>
                 </div>
             </div>
         </div>
-    </footer>
-
+    </div>
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
 
@@ -543,7 +529,7 @@ https://templatemo.com/tm-558-klassy-cafe
     <script src="assets/js/slick.js"></script> 
     <script src="assets/js/lightbox.js"></script> 
     <script src="assets/js/isotope.js"></script> 
-    
+  </footer>
     <!-- Global Init -->
     <script src="assets/js/custom.js"></script>
     <script>
@@ -563,5 +549,6 @@ https://templatemo.com/tm-558-klassy-cafe
         });
 
     </script>
+   
   </body>
 </html>

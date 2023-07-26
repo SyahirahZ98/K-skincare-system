@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\Cart;
 
 use App\Models\Payment;
 
-use App\Models\Cart;
+use Illuminate\Http\Request;
+use App\Notifications\PaymentNotification;
 
 class PaymentController extends Controller
 {
@@ -18,8 +19,8 @@ class PaymentController extends Controller
 
     public function showdetails (Request $request)
     {
-        foreach (\Cart::getContent() as $cartItems){
-        
+        foreach (\Cart::getContent() as $data){
+            
             $payment= Payment::create([
              
                   'firstname'           => request('firstname'),
@@ -29,17 +30,20 @@ class PaymentController extends Controller
                    'city'               =>  request('city'),
                   'code'                =>  request('code'),
                   'notes'               =>  request('notes'),
-                  //'image'               => request('image'),
+                //   'image'               => request('image'),
                   
               ]);
-             }
              if ($image = $request->image) {
              $image =time().'.'.$image->getClientOriginalExtension();
-             $request->image->move('productimage',$image);
-             $cartItems->image=$image;
+             $request->image->move('invoice',$image);
+             $payment->image=$image;
+             $payment->save();
              }
-        
-             return redirect('/payment') ->with('Success','Your Payment already been made');
+            }
+            
+             $payment->notify(new PaymentNotification($payment));
+             
+             return redirect('/payment') ->with('Success','Your Payment already been made!');
 
     }
          

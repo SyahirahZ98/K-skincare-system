@@ -58,8 +58,8 @@ class HomeController extends Controller
         $illiyoon = Product::where('description','yoon')->get();
         $cosrx = Product::where('description','cosrx')->get();
 
-        $products = Product::all();
-        return view('skincare',compact('iunik','innisfree','somebymi','illiyoon','cosrx','products'));
+       
+        return view('skincare',compact('iunik','innisfree','somebymi','illiyoon','cosrx'));
     }
 
     public function iunik(){
@@ -86,32 +86,30 @@ class HomeController extends Controller
 
     public function body()
     {
-        $innisfree = Product::where('description','innisfree')->get();
-        $somebymi = Product::where('description','somebymi')->get();
-        $illiyoon = Product::where('description','yoon')->get();
-        $pyunkang = Product::where('description','pyun')->get();
-        $drjart = Product::where('description','dr')->get();
-        $products = Product::all();
-        return view('body',compact('innisfree','somebymi','illiyoon','pyunkang','drjart','products'));
+        $innisfree = Product::where('description','=','innisfreebody')->get();
+        $somebymi = Product::where('description','=','somebymibody')->get();
+        $illiyoon = Product::where('description','=','yoonbody')->get();
+        // dd($innisfree);
+        return view('body',compact('innisfree','somebymi','illiyoon'));
     }
 
-    public function innis(){
-        $innisfree = Product::where('description','innisfree')->get();
+    public function innisfrees(){
+        $innisfree = Product::where('description','=','innisfreebody')->get();
         return view('body.innisfree',compact('innisfree'));
     }
-    public function some(){
-        $somebymi = Product::where('description','somebymi')->get();
+    public function somes(){
+        $somebymi = Product::where('description','=','somebymibody')->get();
         return view('body.somebymi',compact('somebymi'));
     }
-    public function illi(){
-        $illiyoon = Product::where('description','yoon')->get();
+    public function illiyoons(){
+        $illiyoon = Product::where('description','=','yoonbody')->get();
         return view('body.illiyoon',compact('illiyoon'));
     }
-    public function pyunkang(){
+    public function pyunkangs(){
         $pyunkang = Product::where('description','pyun')->get();
         return view('body.pyunkang',compact('pyunkang'));
     }
-    public function drjart(){
+    public function drjarts(){
         $drjart = Product::where('description','dr')->get();
         return view('body.drjart',compact('drjart'));
     }
@@ -123,5 +121,17 @@ class HomeController extends Controller
     }
 
    
-}
+    public function vieworder ($id)
+    {
+        $data=Payment::find($id);
+        return view("vieworder", compact("data"));
+    }
 
+    public function deleteorder($id)
+    {
+        $data=Payment::find($id);
+        $data->delete();
+        return redirect()->back();
+    }
+
+}

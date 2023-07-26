@@ -137,14 +137,14 @@
                                 </div>
                             @endif
                                 </li>
-                                <li>
-                                  @auth
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="100" fill="currentColor" class="bi bi-cart" viewBox="0 0 16 16">
-                                        <a href="{{url('/cart',Auth::user()->id)}}">
-                                        <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
-                                    </svg>
-                                    @endauth
-                                </li>
+                                <li class="scroll-to-section">
+                                    <i class="bi bi-cart"></i>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="110" fill="currentColor" class="bi bi-cart" viewBox="0 5 16 16">
+                                            <a href="{{url('/cart')}}">
+                                            <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                                        </svg>                       
+                                        
+                                    </li>
                             </ul>        
                             <a class='menu-trigger'>
                                 <span></span>
@@ -174,14 +174,14 @@
                         </div>
                     </div>
                     <div class="col-md-10 col-sm-8 main-content">
-            <h2 class="font-weight-bold mb-2">From the Shop</h2>
-            <p class="font-italic text-muted mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                        
+                        <h2 class="font-weight-bold mb-23">Skincare</h2>
+                        <p class="font-italic text-muted mb-4">“Be good to your skin. You’ll wear it every day for the rest of your life.” — Renee Rouleau.</p>
+                                   
             <div class="row pb-5 mb-4">
                 @foreach ($cosrx as $cosrx)
               <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
                 <!-- Card-->
-                <div class="card rounded shadow-sm border-0">
+                <div class="card rounded shadow-sm border-0 mt-3">
                     
                   <div class="card-body p-4"><img src="/productimage/{{$cosrx->image}}" width="300px" alt="" class="img-fluid d-block mx-auto mb-3">
                     <h5> <a href="#" class="text-dark">{{$cosrx->name}}</a></h5>
@@ -211,7 +211,7 @@
             </div>
                 </div>
             </div>
-            
+            </div>
             <br><br>
             <footer>
               <div class="container">

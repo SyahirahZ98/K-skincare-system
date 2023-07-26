@@ -44,7 +44,7 @@
           </a>
         </li> 
         <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('/vieworder')}}">
+          <a class="nav-link" href="{{url('/adminorder')}}">
             <span class="menu-icon">
               <i class="mdi mdi-briefcase-check"></i>
             </span>

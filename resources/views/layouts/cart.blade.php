@@ -79,10 +79,11 @@
                             <button class="px-6 py-2 text-red-800 bg-red-300">Remove All Cart</button>
                           </form>
                         </div>
+                        <br>
                         <div>
                           <form action="{{ url('/payment')}}" method="GET">
                             @csrf
-                            <button>Check Out</button>
+                            <button class="px-6 py-2 text-white-800 bg-black-300">Check Out</button>
                           </form>
                         </div>
                       </div>

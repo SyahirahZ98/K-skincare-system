@@ -11,6 +11,8 @@ use App\Models\Product;
 use App\Models\Reservation;
 
 use App\Models\Consultant;
+use App\Models\Payment;
+
 
 class AdminController extends Controller
 {
@@ -39,6 +41,11 @@ class AdminController extends Controller
 
         $data=product::find($id);
         return view("admin.updateview", compact("data"));
+    }
+    public function adminorder() 
+    {
+        $data=Payment::all();
+        return view("admin.adminorder", compact("data"));
     }
 
     public function update(Request $request, $id)
